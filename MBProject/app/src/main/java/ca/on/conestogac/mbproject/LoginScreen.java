@@ -20,6 +20,7 @@ public class LoginScreen extends AppCompatActivity {
     public void loginAttempt(View view) {
         EditText userName = (EditText) findViewById(R.id.userName);
         EditText password = (EditText) findViewById(R.id.password);
+        userName.requestFocus();
 
         if (userName.getText().toString().equals("admin") && password.getText().toString().equals("admin")) {
             Intent intent = new Intent(this, HomePage.class);
