@@ -20,6 +20,7 @@
         android:text="ToggleButton"
         android:textOff="1 V 1"
         android:textOn="Multiplayer"
+        android:onClick="numberOfPlayers"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_constraintLeft_creator="1"
@@ -30,20 +31,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Number of Players"
-        android:layout_marginStart="23dp"
         tools:layout_constraintTop_creator="1"
         android:layout_marginTop="16dp"
         tools:layout_constraintLeft_creator="1"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/playersToggle"
-        android:layout_marginLeft="23dp" />
+        android:layout_marginRight="340dp"
+        app:layout_constraintRight_toRightOf="parent" />
 
     <SeekBar
         android:id="@+id/playersBar"
         android:layout_width="192dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
-        android:max="6"
+        android:max="4"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/playersToggle"
         app:layout_constraintLeft_toLeftOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView"
@@ -55,12 +56,12 @@
         android:id="@+id/playersNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="38dp"
-        android:layout_marginRight="38dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="50dp"
+        android:text="2"
+        app:layout_constraintLeft_toRightOf="@+id/textView"
         tools:layout_constraintRight_creator="1"
-        tools:layout_constraintTop_creator="1" />
+        tools:layout_constraintTop_creator="1"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp" />
 
 </android.support.constraint.ConstraintLayout>
