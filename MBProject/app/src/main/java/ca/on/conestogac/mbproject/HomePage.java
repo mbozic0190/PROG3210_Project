@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -53,16 +54,17 @@ public class HomePage extends AppCompatActivity {
     public void playMode(View view){
         // Is the button now checked?
         boolean checked = ((RadioButton) view).isChecked();
+        EditText StartLife = (EditText) findViewById(R.id.startLifeTotal);
 
         // Check which radio button was clicked
         switch(view.getId()) {
             case R.id.radioStandard:
                 if (checked)
-                    // add code here
+                    StartLife.setText(String.valueOf(20));
                     break;
             case R.id.radioCommander:
                 if (checked)
-                    // add code here
+                    StartLife.setText(String.valueOf(40));
                     break;
         }
     }
