@@ -58,11 +58,11 @@ public class HomePage extends AppCompatActivity {
         switch(view.getId()) {
             case R.id.radioStandard:
                 if (checked)
-                    // Pirates are the best
+                    // add code here
                     break;
             case R.id.radioCommander:
                 if (checked)
-                    // Ninjas rule
+                    // add code here
                     break;
         }
     }
