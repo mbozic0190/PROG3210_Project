@@ -13,10 +13,8 @@
 
     <ToggleButton
         android:id="@+id/playersToggle"
-        android:layout_width="wrap_content"
+        android:layout_width="117dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:checked="false"
         android:onClick="numberOfPlayers"
@@ -25,8 +23,8 @@
         android:textOn="Multiplayer"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintTop_creator="1" />
+        tools:layout_constraintTop_creator="1"
+        app:layout_constraintRight_toLeftOf="@+id/textView" />
 
     <TextView
         android:id="@+id/textView"
@@ -36,13 +34,12 @@
         tools:layout_constraintTop_creator="1"
         android:layout_marginTop="16dp"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="140dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginStart="140dp" />
+        app:layout_constraintRight_toLeftOf="@+id/playersNumber"
+        app:layout_constraintLeft_toRightOf="@+id/playersToggle" />
 
     <SeekBar
         android:id="@+id/playersBar"
-        android:layout_width="165dp"
+        android:layout_width="0dp"
         android:layout_height="11dp"
         android:max="4"
         android:visibility="invisible"
@@ -51,10 +48,16 @@
         app:layout_constraintBottom_toBottomOf="@+id/playersToggle"
         android:layout_marginTop="13dp"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:layout_constraintLeft_creator="1"
         android:layout_marginBottom="7dp"
-        app:layout_constraintLeft_toLeftOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/playersToggle"
+        tools:layout_constraintRight_creator="1"
+        android:layout_marginStart="33dp"
+        android:layout_marginEnd="33dp"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginLeft="33dp"
+        android:layout_marginRight="33dp" />
 
     <TextView
         android:id="@+id/playersNumber"
@@ -65,8 +68,7 @@
         android:layout_marginTop="16dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/textView"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp" />
+        app:layout_constraintRight_toRightOf="parent" />
 
 
 
@@ -75,13 +77,11 @@
         android:layout_height="35dp"
         android:orientation="horizontal"
         android:id="@+id/radioGroup"
-        android:layout_marginStart="11dp"
         tools:layout_constraintTop_creator="1"
         android:layout_marginTop="49dp"
         app:layout_constraintTop_toBottomOf="@+id/playersToggle"
-        tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="11dp">
+        app:layout_constraintRight_toLeftOf="@+id/startLifeTotal">
 
         <RadioButton
             android:id="@+id/radioStandard"
@@ -108,40 +108,36 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="GameMode"
-        tools:layout_constraintRight_creator="1"
         tools:layout_constraintBottom_creator="1"
         app:layout_constraintBottom_toTopOf="@+id/radioGroup"
-        app:layout_constraintRight_toRightOf="@+id/radioGroup"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="@+id/radioGroup"
-        app:layout_constraintHorizontal_bias="0.507"
-        android:layout_marginBottom="7dp" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginStart="80dp" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Starting Life Total"
-        android:layout_marginBottom="7dp"
+        android:layout_marginBottom="4dp"
         app:layout_constraintBottom_toTopOf="@+id/startLifeTotal"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="2dp"
         tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toLeftOf="@+id/startLifeTotal"
-        android:layout_marginLeft="5dp" />
+        android:layout_marginLeft="2dp" />
 
     <EditText
         android:id="@+id/startLifeTotal"
         android:layout_width="128dp"
         android:layout_height="42dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="0dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:text="20"
         app:layout_constraintLeft_toRightOf="@+id/radioGroup"
         app:layout_constraintTop_toTopOf="@+id/radioGroup"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintTop_creator="1" />
+        tools:layout_constraintTop_creator="1"
+        app:layout_constraintRight_toRightOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>
