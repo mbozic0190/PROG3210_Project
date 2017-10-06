@@ -12,22 +12,64 @@ import android.widget.ToggleButton;
 
 public class HomePage extends AppCompatActivity {
 
+    private ToggleButton playerToggle;
+    private SeekBar playersBar;
+    private TextView playersNumber;
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+
+        // Save UI state changes to the savedInstanceState.
+        // This bundle will be passed to onCreate if the process is
+        // killed and restarted.
+
+        savedInstanceState.putBoolean("playerToggle", playerToggle.isChecked());
+        savedInstanceState.putString("playersNumber", playersNumber.getText().toString());
+
+        // etc.
+
+        super.onSaveInstanceState(savedInstanceState);
+    }
+
+//onRestoreInstanceState
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+
+        super.onRestoreInstanceState(savedInstanceState);
+
+        // Restore UI state from the savedInstanceState.
+        // This bundle has also been passed to onCreate.
+
+        playerToggle.setChecked(savedInstanceState.getBoolean("playerToggle",false));
+        playersNumber.setText(savedInstanceState.getString("playersNumber"));
+
+        if(playerToggle.isChecked())
+        {
+            playersBar.setVisibility(View.VISIBLE);
+        }
+        else
+        {
+            playersBar.setVisibility(View.INVISIBLE);
+        }
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
-    }
+        playerToggle = (ToggleButton) findViewById(R.id.playersToggle);
+        playersBar = (SeekBar) findViewById(R.id.playersBar);
+        playersNumber = (TextView) findViewById(R.id.playersNumber);
+        }
 
     public void numberOfPlayers(View view) {
-        ToggleButton playerToggle = (ToggleButton) findViewById(R.id.playersToggle);
+
         if (playerToggle.isChecked()) {
-            SeekBar playersBar = (SeekBar) findViewById(R.id.playersBar);
+
             playersBar.setVisibility(View.VISIBLE);
             playersBar.setProgress(0);
-
-            final TextView playersNumber = (TextView) findViewById(R.id.playersNumber);
-
             playersBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
                 public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                     progress = progress + 2;
@@ -43,10 +85,7 @@ public class HomePage extends AppCompatActivity {
                 }
             });
         } else {
-            SeekBar playersBar = (SeekBar) findViewById(R.id.playersBar);
             playersBar.setVisibility(View.INVISIBLE);
-
-            TextView playersNumber = (TextView) findViewById(R.id.playersNumber);
             playersNumber.setText("2");
         }
     }

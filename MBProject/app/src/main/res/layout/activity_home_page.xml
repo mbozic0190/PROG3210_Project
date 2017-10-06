@@ -18,7 +18,7 @@
         android:layout_marginTop="16dp"
         android:checked="false"
         android:onClick="numberOfPlayers"
-        android:text="ToggleButton"
+        android:text=""
         android:textOff="1 V 1"
         android:textOn="Multiplayer"
         app:layout_constraintLeft_toLeftOf="parent"

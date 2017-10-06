@@ -56,7 +56,8 @@
         android:layout_marginBottom="33dp"
         app:layout_constraintLeft_toLeftOf="@+id/textView"
         app:layout_constraintTop_toTopOf="@+id/textView"
-        android:layout_marginLeft="0dp" />
+        android:layout_marginLeft="0dp"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/playersNumber"
