@@ -3,14 +3,13 @@ package ca.on.conestogac.mbproject;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
-public class HomePage extends AppCompatActivity {
+public class GameSetupScreen extends AppCompatActivity {
 
     private ToggleButton playerToggle;
     private SeekBar playersBar;
@@ -58,10 +57,25 @@ public class HomePage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_page);
+        setContentView(R.layout.activity_game_setup_screen);
         playerToggle = (ToggleButton) findViewById(R.id.playersToggle);
         playersBar = (SeekBar) findViewById(R.id.playersBar);
         playersNumber = (TextView) findViewById(R.id.playersNumber);
+
+        playersBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                progress = progress + 2;
+                playersNumber.setText(String.valueOf(progress));
+            }
+
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
         }
 
     public void numberOfPlayers(View view) {
@@ -70,20 +84,7 @@ public class HomePage extends AppCompatActivity {
 
             playersBar.setVisibility(View.VISIBLE);
             playersBar.setProgress(0);
-            playersBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-                public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                    progress = progress + 2;
-                    playersNumber.setText(String.valueOf(progress));
-                }
 
-                public void onStartTrackingTouch(SeekBar seekBar) {
-
-                }
-
-                public void onStopTrackingTouch(SeekBar seekBar) {
-
-                }
-            });
         } else {
             playersBar.setVisibility(View.INVISIBLE);
             playersNumber.setText("2");
