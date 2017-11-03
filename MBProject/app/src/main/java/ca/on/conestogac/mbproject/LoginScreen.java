@@ -28,7 +28,6 @@ public class LoginScreen extends AppCompatActivity {
         EditText password = (EditText) findViewById(R.id.password);
         userName.requestFocus();
 
-
         if (databaseHelper.checkUser(userName.getText().toString().trim()
                 , password.getText().toString().trim())) {
 
@@ -64,5 +63,10 @@ public class LoginScreen extends AppCompatActivity {
             password.setText("");
 
         }*/
+    }
+
+    public void registerNewUser(View view){
+        Intent registerIntent = new Intent(this, AccountCreateScreen.class);
+        startActivity(registerIntent);
     }
 }
