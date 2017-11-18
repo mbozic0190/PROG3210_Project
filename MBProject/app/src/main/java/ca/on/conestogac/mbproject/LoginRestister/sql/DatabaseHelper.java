@@ -21,7 +21,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
 
-    private static final String DATABASE_NAME = "UserManager.db";
+    private static final String DATABASE_NAME = "MTGHelper.db";
 
     private static final String TABLE_USER = "user";
     private static final String TABLE_COMMANDER = "commander";
@@ -33,10 +33,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_COMMANDER_ID = "commander_id";
     private static final String COLUMN_COMMANDER_NAME = "commander_name";
 
-    private String CREATE_USER_TABLE = "CREATE TABLE " + TABLE_USER + "("
-            + COLUMN_COMMANDER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_COMMANDER_NAME + " TEXT," + ")";
+    private String CREATE_COMMANDER_TABLE = "CREATE TABLE IF NOT EXISTS " + TABLE_COMMANDER + "("
+            + COLUMN_COMMANDER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_COMMANDER_NAME + " TEXT" + ")";
 
-    private String CREATE_COMMANDER_TABLE = "CREATE TABLE " + TABLE_COMMANDER + "("
+    private String CREATE_USER_TABLE = "CREATE TABLE IF NOT EXISTS " + TABLE_USER + "("
             + COLUMN_USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_USER_NAME + " TEXT,"
             + COLUMN_USER_PASSWORD + " TEXT" + ")";
 
@@ -49,6 +49,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        SQLiteDatabase db = this.getWritableDatabase();
+        onCreate(db);
         initInsert();
     }
 
@@ -70,7 +72,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "INSERT or replace INTO commander (commander_id, commander_name) VALUES" +
                         "(1,'Progenitus')," +
                         "(2,'Nekusar, the Mindrazer')," +
-                        "(3,''Mayael the Anima)" ;
+                        "(3,'Mayael the Anima')" ;
         db.execSQL(init_commander);
 
     }
@@ -141,6 +143,40 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         // return user list
         return userList;
+    }
+
+    public List<Commander> getAllCommanders() {
+        // array of columns to fetch
+        String[] columns = {
+                COLUMN_COMMANDER_ID,
+                COLUMN_COMMANDER_NAME
+        };
+        // sorting orders
+        String sortOrder =
+                COLUMN_COMMANDER_NAME + " ASC";
+        List<Commander> commanderList = new ArrayList<Commander>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(TABLE_COMMANDER,
+                columns,
+                null,
+                null,
+                null,
+                null,
+                sortOrder);
+
+        if (cursor.moveToFirst()) {
+            do {
+                Commander commander = new Commander();
+                commander.setId(Integer.parseInt(cursor.getString(cursor.getColumnIndex(COLUMN_COMMANDER_ID))));
+                commander.setName(cursor.getString(cursor.getColumnIndex(COLUMN_COMMANDER_NAME)));
+                commanderList.add(commander);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return commanderList;
     }
 
     public void updateUser(User user) {
