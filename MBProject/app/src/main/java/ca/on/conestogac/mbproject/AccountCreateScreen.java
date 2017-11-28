@@ -8,21 +8,22 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import ca.on.conestogac.mbproject.LoginRestister.sql.DatabaseHelper;
-import ca.on.conestogac.mbproject.Model.User;
+import java.util.List;
+
+import ca.on.conestogac.mbproject.Entities.User;
+import ca.on.conestogac.mbproject.Database.AppDatabase;
+import ca.on.conestogac.mbproject.DAOs.UserDao;
 
 public class AccountCreateScreen extends AppCompatActivity {
 
-    private final AppCompatActivity activity = AccountCreateScreen.this;
-    private DatabaseHelper databaseHelper;
-    private User user;
+    private UserDao userDao;
+    private AppDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account_create_screen);
-        databaseHelper = new DatabaseHelper(activity);
-        user = new User();
+        database = AppDatabase.getDatabase(getApplicationContext());
     }
 
     public void registerAttempt(View view){
@@ -30,13 +31,12 @@ public class AccountCreateScreen extends AppCompatActivity {
         EditText password = (EditText) findViewById(R.id.registerPassword);
         userName.requestFocus();
 
+        User userCreate = database.userDao().getUser(userName.getText().toString());
 
-        if (!databaseHelper.checkUser(userName.getText().toString().trim())) {
+        if (userCreate == null) {
 
-            user.setName(userName.getText().toString().trim());
-            user.setPassword(password.getText().toString().trim());
-
-            databaseHelper.addUser(user);
+            User user = new User(userName.getText().toString().trim(), password.getText().toString().trim());
+            database.userDao().addUser(user);
 
             Toast.makeText(this, "Registration Successful, welcome",
                     Toast.LENGTH_LONG).show();

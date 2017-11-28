@@ -7,48 +7,47 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-import ca.on.conestogac.mbproject.LoginRestister.sql.DatabaseHelper;
+
+import java.util.List;
+
+import ca.on.conestogac.mbproject.Database.AppDatabase;
+import ca.on.conestogac.mbproject.Entities.Commander;
+import ca.on.conestogac.mbproject.Entities.User;
 
 
 public class LoginScreen extends AppCompatActivity {
 
-    private final AppCompatActivity activity = LoginScreen.this;
-    private DatabaseHelper databaseHelper;
+    private User user;
+    private AppDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_screen);
-        databaseHelper = new DatabaseHelper(activity);
-    }
+        database = AppDatabase.getDatabase(getApplicationContext());
 
+        // cleanup for testing some initial data
+        database.userDao().removeAllUsers();
+        // add some data
+        List<User> users = database.userDao().getAllUser();
+        if (users.size()==0) {
+            database.userDao().addUser(new User("admin", "admin"));
+            user = database.userDao().getAllUser().get(0);
+            Toast.makeText(this, String.valueOf(user.id), Toast.LENGTH_SHORT).show();
+            database.commanderDao().addCommander(new Commander("Progenitus"));
+            database.commanderDao().addCommander(new Commander("Mirko Vosk, Mind Drinker"));
+            database.userDao().addUser(new User("mirko", "mirko"));
+        }
+    }
 
     public void loginAttempt(View view) {
         EditText userName = (EditText) findViewById(R.id.userName);
         EditText password = (EditText) findViewById(R.id.password);
         userName.requestFocus();
 
-        if (databaseHelper.checkUser(userName.getText().toString().trim()
-                , password.getText().toString().trim())) {
+        User userLogin = database.userDao().getUser(userName.getText().toString());
 
-
-            Toast.makeText(this, "Login Successful, welcome",
-                    Toast.LENGTH_LONG).show();
-            Intent accountsIntent = new Intent(this, GameSetupScreen.class);
-            startActivity(accountsIntent);
-        }
-        else
-        {
-            AlertDialog.Builder loginError  = new AlertDialog.Builder(this);
-            loginError.setMessage("Wrong username or password. Please try again");
-            loginError.setTitle("Login Attempt");
-            loginError.setPositiveButton("OK", null);
-            loginError.setCancelable(true);
-            loginError.create().show();
-            password.setText("");
-        }
-
-    /*    if (userName.getText().toString().equals("admin") && password.getText().toString().equals("admin")) {
+        if (userName.getText().toString().equals(userLogin.name) && password.getText().toString().equals(userLogin.password)) {
             Toast.makeText(this, "Login Successful, welcome",
                     Toast.LENGTH_LONG).show();
             Intent intent = new Intent(this, GameSetupScreen.class);
@@ -62,7 +61,7 @@ public class LoginScreen extends AppCompatActivity {
             loginError.create().show();
             password.setText("");
 
-        }*/
+        }
     }
 
     public void registerNewUser(View view){
