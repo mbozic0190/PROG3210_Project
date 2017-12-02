@@ -27,16 +27,20 @@ public class LoginScreen extends AppCompatActivity {
         database = AppDatabase.getDatabase(getApplicationContext());
 
         // cleanup for testing some initial data
-        database.userDao().removeAllUsers();
+        //database.userDao().removeAllUsers();
+        //database.commanderDao().removeAllCommader();
         // add some data
         List<User> users = database.userDao().getAllUser();
         if (users.size()==0) {
             database.userDao().addUser(new User("admin", "admin"));
+            database.userDao().addUser(new User("mirko", "mirko"));
             user = database.userDao().getAllUser().get(0);
             Toast.makeText(this, String.valueOf(user.id), Toast.LENGTH_SHORT).show();
+        }
+        List<String> commanders = database.commanderDao().getAllCommanders();
+        if (commanders.size()==0) {
             database.commanderDao().addCommander(new Commander("Progenitus"));
             database.commanderDao().addCommander(new Commander("Mirko Vosk, Mind Drinker"));
-            database.userDao().addUser(new User("mirko", "mirko"));
         }
     }
 

@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ca.on.conestogac.mbproject.GameSetupScreen"
-    tools:layout_editor_absoluteY="81dp"
-    tools:layout_editor_absoluteX="0dp"
     android:focusable="true"
-    android:focusableInTouchMode="true">
+    android:focusableInTouchMode="true"
+    tools:context="ca.on.conestogac.mbproject.GameSetupScreen"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="81dp">
 
     <ToggleButton
         android:id="@+id/playersToggle"
@@ -22,66 +21,63 @@
         android:textOff="1 V 1"
         android:textOn="Multiplayer"
         app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/textView"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_constraintTop_creator="1"
-        app:layout_constraintRight_toLeftOf="@+id/textView" />
+        tools:layout_constraintTop_creator="1" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Number of Players"
-        tools:layout_constraintTop_creator="1"
         android:layout_marginTop="16dp"
-        app:layout_constraintTop_toTopOf="parent"
+        android:text="Number of Players"
+        app:layout_constraintLeft_toRightOf="@+id/playersToggle"
         app:layout_constraintRight_toLeftOf="@+id/playersNumber"
-        app:layout_constraintLeft_toRightOf="@+id/playersToggle" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintTop_creator="1" />
 
     <SeekBar
         android:id="@+id/playersBar"
         android:layout_width="0dp"
         android:layout_height="11dp"
+        android:layout_marginBottom="7dp"
+        android:layout_marginLeft="33dp"
+        android:layout_marginRight="33dp"
+        android:layout_marginTop="13dp"
         android:max="4"
         android:visibility="invisible"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintBottom_creator="1"
         app:layout_constraintBottom_toBottomOf="@+id/playersToggle"
-        android:layout_marginTop="13dp"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        android:layout_marginBottom="7dp"
-        app:layout_constraintVertical_bias="0.0"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/playersToggle"
-        tools:layout_constraintRight_creator="1"
-        android:layout_marginStart="33dp"
-        android:layout_marginEnd="33dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_constraintBottom_creator="1"
         tools:layout_constraintLeft_creator="1"
-        android:layout_marginLeft="33dp"
-        android:layout_marginRight="33dp" />
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
     <TextView
         android:id="@+id/playersNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2"
-        tools:layout_constraintTop_creator="1"
         android:layout_marginTop="16dp"
-        app:layout_constraintTop_toTopOf="parent"
+        android:text="2"
         app:layout_constraintLeft_toRightOf="@+id/textView"
-        app:layout_constraintRight_toRightOf="parent" />
-
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintTop_creator="1" />
 
 
     <RadioGroup
+        android:id="@+id/radioGroup"
         android:layout_width="199dp"
         android:layout_height="35dp"
-        android:orientation="horizontal"
-        android:id="@+id/radioGroup"
-        tools:layout_constraintTop_creator="1"
         android:layout_marginTop="49dp"
-        app:layout_constraintTop_toBottomOf="@+id/playersToggle"
+        android:orientation="horizontal"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/startLifeTotal">
+        app:layout_constraintRight_toLeftOf="@+id/startLifeTotal"
+        app:layout_constraintTop_toBottomOf="@+id/playersToggle"
+        tools:layout_constraintTop_creator="1">
 
         <RadioButton
             android:id="@+id/radioStandard"
@@ -107,25 +103,23 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="GameMode"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toTopOf="@+id/radioGroup"
-        app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="80dp"
-        android:layout_marginStart="80dp" />
+        android:text="GameMode"
+        app:layout_constraintBottom_toTopOf="@+id/radioGroup"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:layout_constraintBottom_creator="1" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Starting Life Total"
         android:layout_marginBottom="4dp"
+        android:layout_marginLeft="2dp"
+        android:text="Starting Life Total"
         app:layout_constraintBottom_toTopOf="@+id/startLifeTotal"
-        android:layout_marginStart="2dp"
-        tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toLeftOf="@+id/startLifeTotal"
-        android:layout_marginLeft="2dp" />
+        tools:layout_constraintLeft_creator="1" />
 
     <EditText
         android:id="@+id/startLifeTotal"
@@ -135,9 +129,138 @@
         android:inputType="number"
         android:text="20"
         app:layout_constraintLeft_toRightOf="@+id/radioGroup"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@+id/radioGroup"
-        tools:layout_constraintTop_creator="1"
-        app:layout_constraintRight_toRightOf="parent" />
+        tools:layout_constraintTop_creator="1" />
+
+    <Spinner
+        android:id="@+id/commander1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="67dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/startLifeTotal" />
+
+    <Spinner
+        android:id="@+id/commander2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="35dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/commander1" />
+
+    <Spinner
+        android:id="@+id/commander3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="35dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/commander2" />
+
+    <Spinner
+        android:id="@+id/commander4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="35dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/commander3" />
+
+    <Spinner
+        android:id="@+id/commander5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="35dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/commander4" />
+
+    <Spinner
+        android:id="@+id/commander6"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="35dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/commander5" />
+
+    <TextView
+        android:id="@+id/textPlayer1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Player 1:"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/commander1"
+        app:layout_constraintStart_toStartOf="@+id/commander1" />
+
+    <TextView
+        android:id="@+id/textPlayer2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Player 2:"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/commander2"
+        app:layout_constraintStart_toStartOf="@+id/commander2" />
+
+    <TextView
+        android:id="@+id/textPlayer3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp"
+        android:text="Player 3:"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/commander3"
+        app:layout_constraintStart_toStartOf="@+id/commander3" />
+
+    <TextView
+        android:id="@+id/textPlayer4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp"
+        android:text="Player 4:"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/commander4"
+        app:layout_constraintStart_toStartOf="@+id/commander4" />
+
+    <TextView
+        android:id="@+id/textPlayer5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp"
+        android:text="Player 5:"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/commander5"
+        app:layout_constraintStart_toStartOf="@+id/commander5" />
+
+    <TextView
+        android:id="@+id/textPlayer6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Player 6:"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/commander6"
+        app:layout_constraintStart_toStartOf="@+id/commander6" />
 
 
 </android.support.constraint.ConstraintLayout>

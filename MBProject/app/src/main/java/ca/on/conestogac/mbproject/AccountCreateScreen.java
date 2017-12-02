@@ -16,7 +16,7 @@ import ca.on.conestogac.mbproject.DAOs.UserDao;
 
 public class AccountCreateScreen extends AppCompatActivity {
 
-    private UserDao userDao;
+    //private UserDao userDao;
     private AppDatabase database;
 
     @Override

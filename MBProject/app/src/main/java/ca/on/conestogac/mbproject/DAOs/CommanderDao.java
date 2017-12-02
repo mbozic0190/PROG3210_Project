@@ -20,8 +20,8 @@ public interface CommanderDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void addCommander(Commander commander);
 
-    @Query("select * from commander")
-    public List<Commander> getAllCommanders();
+    @Query("select name from commander")
+    public List<String> getAllCommanders();
 
     @Query("select * from commander where id = :commanderId")
     public List<Commander> getCommander(long commanderId);

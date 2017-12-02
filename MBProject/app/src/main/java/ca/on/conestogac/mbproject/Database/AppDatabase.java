@@ -13,7 +13,6 @@ import android.arch.persistence.room.RoomDatabase;
 import ca.on.conestogac.mbproject.Entities.Statistics;
 import ca.on.conestogac.mbproject.Entities.User;
 import ca.on.conestogac.mbproject.Entities.Commander;
-import ca.on.conestogac.mbproject.Entities.Statistics;
 import ca.on.conestogac.mbproject.DAOs.UserDao;
 import ca.on.conestogac.mbproject.DAOs.CommanderDao;
 import ca.on.conestogac.mbproject.DAOs.StatisticsDao;
