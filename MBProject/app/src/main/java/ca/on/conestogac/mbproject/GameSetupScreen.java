@@ -67,18 +67,56 @@ public class GameSetupScreen extends AppCompatActivity {
         {
             playersBar.setVisibility(View.VISIBLE);
             if (mode.isChecked()){
-                textPlayer1.setVisibility(View.VISIBLE);
-                commander1.setVisibility(View.VISIBLE);
-                textPlayer2.setVisibility(View.VISIBLE);
-                commander2.setVisibility(View.VISIBLE);
-                textPlayer3.setVisibility(View.VISIBLE);
-                commander3.setVisibility(View.VISIBLE);
-                textPlayer4.setVisibility(View.VISIBLE);
-                commander4.setVisibility(View.VISIBLE);
-                textPlayer5.setVisibility(View.VISIBLE);
-                commander5.setVisibility(View.VISIBLE);
-                textPlayer6.setVisibility(View.VISIBLE);
-                commander6.setVisibility(View.VISIBLE);
+                if(Integer.valueOf(playersNumber.getText().toString()) == 2){
+                    textPlayer1.setVisibility(View.VISIBLE);
+                    commander1.setVisibility(View.VISIBLE);
+                    textPlayer2.setVisibility(View.VISIBLE);
+                    commander2.setVisibility(View.VISIBLE);
+                }
+                else if(Integer.valueOf(playersNumber.getText().toString()) == 3){
+                    textPlayer1.setVisibility(View.VISIBLE);
+                    commander1.setVisibility(View.VISIBLE);
+                    textPlayer2.setVisibility(View.VISIBLE);
+                    commander2.setVisibility(View.VISIBLE);
+                    textPlayer3.setVisibility(View.VISIBLE);
+                    commander3.setVisibility(View.VISIBLE);
+                }
+                else if(Integer.valueOf(playersNumber.getText().toString()) == 4){
+                    textPlayer1.setVisibility(View.VISIBLE);
+                    commander1.setVisibility(View.VISIBLE);
+                    textPlayer2.setVisibility(View.VISIBLE);
+                    commander2.setVisibility(View.VISIBLE);
+                    textPlayer3.setVisibility(View.VISIBLE);
+                    commander3.setVisibility(View.VISIBLE);
+                    textPlayer4.setVisibility(View.VISIBLE);
+                    commander4.setVisibility(View.VISIBLE);
+                }
+                else if(Integer.valueOf(playersNumber.getText().toString()) == 5){
+                    textPlayer1.setVisibility(View.VISIBLE);
+                    commander1.setVisibility(View.VISIBLE);
+                    textPlayer2.setVisibility(View.VISIBLE);
+                    commander2.setVisibility(View.VISIBLE);
+                    textPlayer3.setVisibility(View.VISIBLE);
+                    commander3.setVisibility(View.VISIBLE);
+                    textPlayer4.setVisibility(View.VISIBLE);
+                    commander4.setVisibility(View.VISIBLE);
+                    textPlayer5.setVisibility(View.VISIBLE);
+                    commander5.setVisibility(View.VISIBLE);
+                }
+                else if(Integer.valueOf(playersNumber.getText().toString()) == 6){
+                    textPlayer1.setVisibility(View.VISIBLE);
+                    commander1.setVisibility(View.VISIBLE);
+                    textPlayer2.setVisibility(View.VISIBLE);
+                    commander2.setVisibility(View.VISIBLE);
+                    textPlayer3.setVisibility(View.VISIBLE);
+                    commander3.setVisibility(View.VISIBLE);
+                    textPlayer4.setVisibility(View.VISIBLE);
+                    commander4.setVisibility(View.VISIBLE);
+                    textPlayer5.setVisibility(View.VISIBLE);
+                    commander5.setVisibility(View.VISIBLE);
+                    textPlayer6.setVisibility(View.VISIBLE);
+                    commander6.setVisibility(View.VISIBLE);
+                }
             }
         }
         else
@@ -92,7 +130,6 @@ public class GameSetupScreen extends AppCompatActivity {
             }
         }
     }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

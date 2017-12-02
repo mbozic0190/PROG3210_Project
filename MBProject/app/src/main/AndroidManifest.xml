@@ -9,10 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LoginScreen"></activity>
+        <activity android:name=".LoginScreen" />
         <activity
             android:name=".GameSetupScreen"
-            android:configChanges="orientation|keyboardHidden"></activity>
+            android:configChanges="orientation|keyboardHidden" />
         <activity
             android:name=".SplashScreen"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -24,7 +24,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AccountCreateScreen"></activity>
+        <activity android:name=".AccountCreateScreen" />
+        <activity android:name=".AboutScreen"></activity>
     </application>
 
 </manifest>

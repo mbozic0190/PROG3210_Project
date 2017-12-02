@@ -35,7 +35,6 @@ public class LoginScreen extends AppCompatActivity {
             database.userDao().addUser(new User("admin", "admin"));
             database.userDao().addUser(new User("mirko", "mirko"));
             user = database.userDao().getAllUser().get(0);
-            Toast.makeText(this, String.valueOf(user.id), Toast.LENGTH_SHORT).show();
         }
         List<String> commanders = database.commanderDao().getAllCommanders();
         if (commanders.size()==0) {
@@ -71,5 +70,10 @@ public class LoginScreen extends AppCompatActivity {
     public void registerNewUser(View view){
         Intent registerIntent = new Intent(this, AccountCreateScreen.class);
         startActivity(registerIntent);
+    }
+
+    public void aboutPage(View view){
+        Intent aboutIntent = new Intent(this, AboutScreen.class);
+        startActivity(aboutIntent);
     }
 }
