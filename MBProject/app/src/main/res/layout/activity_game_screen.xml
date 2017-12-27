@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="2"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:columnCount="2"
+            android:rowCount="3"
+            android:useDefaultMargins="true">
+
+            <Button
+                android:id="@+id/btnPlayer1"
+                android:layout_column="0"
+                android:layout_columnWeight="1"
+                android:layout_row="0"
+                android:layout_rowWeight="1"
+                android:textSize="14dip" />
+
+            <Button
+                android:id="@+id/btnPlayer2"
+                android:layout_column="1"
+                android:layout_columnWeight="1"
+                android:layout_row="0"
+                android:layout_rowWeight="1"
+                android:textSize="14dip" />
+
+            <Button
+                android:id="@+id/btnPlayer3"
+                android:layout_column="0"
+                android:layout_columnWeight="1"
+                android:layout_row="1"
+                android:layout_rowWeight="1"
+                android:textSize="14dip" />
+
+            <Button
+                android:id="@+id/btnPlayer4"
+                android:layout_column="1"
+                android:layout_columnWeight="1"
+                android:layout_row="1"
+                android:layout_rowWeight="1"
+                android:textSize="14dip" />
+
+            <Button
+                android:id="@+id/btnPlayer5"
+                android:layout_column="0"
+                android:layout_columnWeight="1"
+                android:layout_row="2"
+                android:layout_rowWeight="1"
+                android:textSize="14dip" />
+
+            <Button
+                android:id="@+id/btnPlayer6"
+                android:layout_column="1"
+                android:layout_columnWeight="1"
+                android:layout_row="2"
+                android:layout_rowWeight="1"
+                android:textSize="14dip" />
+        </GridLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight=".75"
+            android:orientation="horizontal"></LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight=".25"
+            android:orientation="vertical"></LinearLayout>
+    </LinearLayout>
+</LinearLayout>

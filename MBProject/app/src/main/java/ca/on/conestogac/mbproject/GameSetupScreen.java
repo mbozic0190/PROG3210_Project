@@ -1,5 +1,6 @@
 package ca.on.conestogac.mbproject;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -21,6 +22,7 @@ public class GameSetupScreen extends AppCompatActivity {
     private ToggleButton playerToggle;
     private SeekBar playersBar;
     private TextView playersNumber;
+    private EditText startLife;
     private Spinner commander1;
     private Spinner commander2;
     private Spinner commander3;
@@ -144,6 +146,7 @@ public class GameSetupScreen extends AppCompatActivity {
         playerToggle = (ToggleButton) findViewById(R.id.playersToggle);
         playersBar = (SeekBar) findViewById(R.id.playersBar);
         playersNumber = (TextView) findViewById(R.id.playersNumber);
+        startLife = (EditText) findViewById(R.id.startLifeTotal);
         mode = (RadioButton) findViewById(R.id.radioCommander);
         database = AppDatabase.getDatabase(getApplicationContext());
         loadSpinners();
@@ -239,13 +242,12 @@ public class GameSetupScreen extends AppCompatActivity {
     public void playMode(View view){
         // Is the button now checked?
         boolean checked = ((RadioButton) view).isChecked();
-        EditText StartLife = (EditText) findViewById(R.id.startLifeTotal);
 
         // Check which radio button was clicked
         switch(view.getId()) {
             case R.id.radioStandard:
                 if (checked)
-                    StartLife.setText(String.valueOf(20));
+                    startLife.setText(String.valueOf(20));
                     textPlayer1.setVisibility(View.INVISIBLE);
                     commander1.setVisibility(View.INVISIBLE);
                     textPlayer2.setVisibility(View.INVISIBLE);
@@ -261,7 +263,7 @@ public class GameSetupScreen extends AppCompatActivity {
                     break;
             case R.id.radioCommander:
                 if (checked)
-                    StartLife.setText(String.valueOf(40));
+                    startLife.setText(String.valueOf(40));
                     textPlayer1.setVisibility(View.VISIBLE);
                     commander1.setVisibility(View.VISIBLE);
                     textPlayer2.setVisibility(View.VISIBLE);
@@ -340,5 +342,19 @@ public class GameSetupScreen extends AppCompatActivity {
         commander4.setAdapter(spinnerAdapter);
         commander5.setAdapter(spinnerAdapter);
         commander6.setAdapter(spinnerAdapter);
+    }
+
+    public void startGame(View view){
+        String passLife = startLife.getText().toString();
+        Intent gameIntent = new Intent(this, GameScreen.class);
+        gameIntent.putExtra("PLAYERS_NUMBER", playersNumber.getText().toString());
+        gameIntent.putExtra("START_LIFE", passLife);
+        gameIntent.putExtra("PLAYER_1_COMMANDER", commander1.getSelectedItem().toString());
+        gameIntent.putExtra("PLAYER_2_COMMANDER", commander2.getSelectedItem().toString());
+        gameIntent.putExtra("PLAYER_3_COMMANDER", commander3.getSelectedItem().toString());
+        gameIntent.putExtra("PLAYER_4_COMMANDER", commander4.getSelectedItem().toString());
+        gameIntent.putExtra("PLAYER_5_COMMANDER", commander5.getSelectedItem().toString());
+        gameIntent.putExtra("PLAYER_6_COMMANDER", commander6.getSelectedItem().toString());
+        startActivity(gameIntent);
     }
 }

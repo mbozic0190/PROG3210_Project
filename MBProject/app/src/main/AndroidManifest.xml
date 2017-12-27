@@ -25,7 +25,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".AccountCreateScreen" />
-        <activity android:name=".AboutScreen"></activity>
+        <activity android:name=".AboutScreen" />
+        <activity android:name=".GameScreen"></activity>
     </application>
 
 </manifest>
