@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "653659929460",
+    "firebase_url": "https://androidfirebase-eae3f.firebaseio.com",
+    "project_id": "androidfirebase-eae3f",
+    "storage_bucket": "androidfirebase-eae3f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:653659929460:android:45618572dc8ee9e3",
+        "android_client_info": {
+          "package_name": "ca.on.conestogac.mbproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "653659929460-873sn4v55rcikbp3apcf6kod28l2h961.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSS1SBay-qipQqkiFXJfb2x_aNe7lt1nY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

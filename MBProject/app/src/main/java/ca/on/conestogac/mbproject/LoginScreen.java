@@ -1,13 +1,19 @@
 package ca.on.conestogac.mbproject;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import java.io.InputStream;
 import java.util.List;
 
 import ca.on.conestogac.mbproject.Database.AppDatabase;
@@ -22,9 +28,13 @@ public class LoginScreen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        startService(new Intent(this, MusicService.class));
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_screen);
         database = AppDatabase.getDatabase(getApplicationContext());
+        new DownloadImageTask((ImageView) findViewById(R.id.imgMTG))
+                .execute("https://seeklogo.com/images/M/magic-the-gathering-logo-121CFC67AF-seeklogo.com.png");
+
 
         // cleanup for testing some initial data
         //database.userDao().removeAllUsers();
@@ -41,6 +51,12 @@ public class LoginScreen extends AppCompatActivity {
             database.commanderDao().addCommander(new Commander("Progenitus"));
             database.commanderDao().addCommander(new Commander("Mirko Vosk, Mind Drinker"));
         }
+    }
+
+    protected void onDestroy() {
+        //stop service and stop music
+        stopService(new Intent(this, MusicService.class));
+        super.onDestroy();
     }
 
     public void loginAttempt(View view) {
@@ -75,5 +91,30 @@ public class LoginScreen extends AppCompatActivity {
     public void aboutPage(View view){
         Intent aboutIntent = new Intent(this, AboutScreen.class);
         startActivity(aboutIntent);
+    }
+}
+
+class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
+    ImageView bmImage;
+
+    public DownloadImageTask(ImageView bmImage) {
+        this.bmImage = bmImage;
+    }
+
+    protected Bitmap doInBackground(String... urls) {
+        String urldisplay = urls[0];
+        Bitmap mtgIcon = null;
+        try {
+            InputStream in = new java.net.URL(urldisplay).openStream();
+            mtgIcon = BitmapFactory.decodeStream(in);
+        } catch (Exception e) {
+            Log.e("Error", e.getMessage());
+            e.printStackTrace();
+        }
+        return mtgIcon;
+    }
+
+    protected void onPostExecute(Bitmap result) {
+        bmImage.setImageBitmap(result);
     }
 }

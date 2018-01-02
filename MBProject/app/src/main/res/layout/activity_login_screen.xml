@@ -10,11 +10,13 @@
         android:id="@+id/userName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="334dp"
         android:layout_marginTop="24dp"
         android:ems="10"
         android:hint="@string/username"
         android:inputType="textPersonName"
         android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/imgMTG"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -71,5 +73,17 @@
         android:text="About"
         app:layout_constraintStart_toStartOf="@+id/accountCreateButton"
         app:layout_constraintTop_toBottomOf="@+id/accountCreateButton" />
+
+    <ImageView
+        android:id="@+id/imgMTG"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginStart="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userName" />
 
 </android.support.constraint.ConstraintLayout>

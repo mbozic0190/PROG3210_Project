@@ -11,7 +11,6 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="23dp"
         android:layout_marginTop="16dp"
         android:text="About The Program:"
         app:layout_constraintBottom_toTopOf="@+id/textView5"
@@ -22,8 +21,8 @@
     <TextView
         android:id="@+id/textView5"
         android:layout_width="277dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="9dp"
+        android:layout_height="84dp"
+        android:layout_marginBottom="21dp"
         android:text="This program is made to be an assistant while playing a game of Magic the Gathering, from keeping track of health pools to keeeping statistics of win/loss with individual commanders"
         app:layout_constraintBottom_toTopOf="@+id/textView6"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,18 +33,16 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="18dp"
         android:text="Future Plans:"
         app:layout_constraintBottom_toTopOf="@+id/textView7"
-        app:layout_constraintEnd_toEndOf="@+id/textView5"
-        app:layout_constraintStart_toStartOf="@+id/textView5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <TextView
         android:id="@+id/textView7"
         android:layout_width="277dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="1dp"
         android:text="Future plans include the ability to keep track of tokens and their tapped/untapped states and being able to keep track of counters on cards"
         app:layout_constraintBottom_toTopOf="@+id/backButton"
         app:layout_constraintEnd_toEndOf="parent"
@@ -56,11 +53,23 @@
         android:id="@+id/backButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="12dp"
         android:onClick="loginReturn"
         android:text="Return to Login"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnContact"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <Button
+        android:id="@+id/btnContact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:layout_marginEnd="27dp"
+        android:text="Contact"
+        android:onClick="contact"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/backButton"
+        app:layout_constraintTop_toBottomOf="@+id/backButton" />
 </android.support.constraint.ConstraintLayout>

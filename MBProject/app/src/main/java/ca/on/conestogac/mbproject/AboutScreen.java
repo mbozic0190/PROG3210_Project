@@ -18,4 +18,15 @@ public class AboutScreen extends AppCompatActivity {
         Intent returnIntent = new Intent(this, LoginScreen.class);
         startActivity(returnIntent);
     }
+
+
+    public void contact (View view){
+        Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
+        emailIntent.setType("plain/text");
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, "emailaddress@emailaddress.com");
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Subject");
+        emailIntent.putExtra(Intent.EXTRA_TEXT, "I'm email body.");
+
+        startActivity(Intent.createChooser(emailIntent, "Send Email"));
+    }
 }

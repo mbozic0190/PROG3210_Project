@@ -25,6 +25,8 @@
                 android:layout_columnWeight="1"
                 android:layout_row="0"
                 android:layout_rowWeight="1"
+                android:backgroundTint="#E00C0C"
+                android:onClick="playerOneActive"
                 android:textSize="14dip" />
 
             <Button
@@ -33,7 +35,9 @@
                 android:layout_columnWeight="1"
                 android:layout_row="0"
                 android:layout_rowWeight="1"
-                android:textSize="14dip" />
+                android:textSize="14dip"
+                android:onClick="playerTwoActive"
+                android:backgroundTint="#0C15E0"/>
 
             <Button
                 android:id="@+id/btnPlayer3"
@@ -41,7 +45,9 @@
                 android:layout_columnWeight="1"
                 android:layout_row="1"
                 android:layout_rowWeight="1"
-                android:textSize="14dip" />
+                android:textSize="14dip"
+                android:onClick="playerThreeActive"
+                android:backgroundTint="#0DE00C"/>
 
             <Button
                 android:id="@+id/btnPlayer4"
@@ -49,7 +55,9 @@
                 android:layout_columnWeight="1"
                 android:layout_row="1"
                 android:layout_rowWeight="1"
-                android:textSize="14dip" />
+                android:textSize="14dip"
+                android:onClick="playerFourActive"
+                android:backgroundTint="#FF8F00"/>
 
             <Button
                 android:id="@+id/btnPlayer5"
@@ -57,7 +65,9 @@
                 android:layout_columnWeight="1"
                 android:layout_row="2"
                 android:layout_rowWeight="1"
-                android:textSize="14dip" />
+                android:textSize="14dip"
+                android:onClick="playerFiveActive"
+                android:backgroundTint="#E00CD6"/>
 
             <Button
                 android:id="@+id/btnPlayer6"
@@ -65,7 +75,9 @@
                 android:layout_columnWeight="1"
                 android:layout_row="2"
                 android:layout_rowWeight="1"
-                android:textSize="14dip" />
+                android:textSize="14dip"
+                android:onClick="playerSixActive"
+                android:backgroundTint="#603F12"/>
         </GridLayout>
     </LinearLayout>
 
@@ -78,13 +90,94 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight=".75"
-            android:orientation="horizontal"></LinearLayout>
+            android:layout_weight="1.5"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnEndGame"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="End Game" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Button" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Button" />
+
+            <Button
+                android:id="@+id/btnRules"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Rules"
+                android:onClick="rules"/>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight=".25"
-            android:orientation="vertical"></LinearLayout>
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtCommandName"
+                android:layout_width="match_parent"
+                android:layout_height="33dp"
+                android:gravity="center"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/txtLifePoints"
+                android:layout_width="match_parent"
+                android:layout_height="132dp"
+                android:gravity="center"
+                android:textSize="48sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnLoseTen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="-10"
+                    android:onClick="loseTen"/>
+
+                <Button
+                    android:id="@+id/btnLoseOne"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="-1"
+                    android:onClick="loseOne"/>
+
+                <Button
+                    android:id="@+id/btnGainOne"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="+1"
+                    android:onClick="gainOne"/>
+
+                <Button
+                    android:id="@+id/btnGainTen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="+10"
+                    android:onClick="gainTen"/>
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>
