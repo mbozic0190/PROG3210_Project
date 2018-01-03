@@ -95,30 +95,19 @@
 
             <Button
                 android:id="@+id/btnEndGame"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="End Game" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Button" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Button" />
+                android:text="End Game"
+                android:onClick="endGame"/>
 
             <Button
                 android:id="@+id/btnRules"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Rules"
-                android:onClick="rules"/>
+                android:onClick="rules"
+                android:text="Argue About Rules" />
         </LinearLayout>
 
         <LinearLayout
@@ -131,8 +120,7 @@
                 android:id="@+id/txtCommandName"
                 android:layout_width="match_parent"
                 android:layout_height="33dp"
-                android:gravity="center"
-                android:text="TextView" />
+                android:gravity="center" />
 
             <TextView
                 android:id="@+id/txtLifePoints"

@@ -227,4 +227,9 @@ public class GameScreen extends AppCompatActivity {
         intent.setPackage("com.android.chrome");
         startActivity(intent);
     }
+
+    public void endGame (View view){
+        Intent intent = new Intent(this, GameSetupScreen.class);
+        startActivity(intent);
+    }
 }
